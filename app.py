@@ -1,6 +1,9 @@
 from flask import Flask, request, send_from_directory
 from decode import decode_pdf, remove_file
 
+if not os.access('./files', 0):
+	os.mkdir('./files')
+	
 app = Flask(__name__)
 UPF = "files"
 app.config['UPLOAD_FOLDER']=UPF
