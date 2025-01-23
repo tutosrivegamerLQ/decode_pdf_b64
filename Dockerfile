@@ -7,6 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
-EXPOSE $PORT
+EXPOSE 5000  # O el puerto que prefieras, si $PORT no funciona
 
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:$PORT", "app:app"]
+CMD ["sh", "-c", "gunicorn -w 4 -b 0.0.0.0:${PORT:-4155} app:app"]
