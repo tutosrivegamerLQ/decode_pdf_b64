@@ -1,0 +1,8 @@
+[service]
+name = "manager factus.pdf"
+
+[env]
+PORT = "4255"
+
+[deploy]
+startCommand = "flask run --port=$PORT"
