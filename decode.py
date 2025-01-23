@@ -14,6 +14,6 @@ def decode_pdf(str_code, number_factus):
     return ruta_pdf_salida.replace('./files/', '')
 
 def remove_file(path):
-    os.remove(f'./files/path')
+    os.remove(f'./files/{path}')
 
 
