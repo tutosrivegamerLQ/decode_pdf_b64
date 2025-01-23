@@ -4,15 +4,9 @@ import os
 
 def decode_pdf(str_code, number_factus):
     # Ruta para guardar el archivo PDF decodificado
-    ruta_pdf_salida = f"factura_{number_factus}.pdf"
-    
-    # Leer el contenido codificado en base64 desde el archivo de texto
-    #with open(ruta_archivo_base64, "r") as archivo_base64:
-        #contenido_base64 = archivo_base64.read()
-    
+    ruta_pdf_salida = f"factura_{number_factus}.pdf"    
     # Decodificar el contenido base64
     contenido_pdf = base64.b64decode(str_code)
-    
     # Guardar el contenido decodificado como un archivo PDF
     with open(ruta_pdf_salida, "wb") as archivo_pdf:
         archivo_pdf.write(contenido_pdf)
