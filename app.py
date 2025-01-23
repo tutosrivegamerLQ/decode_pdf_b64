@@ -1,5 +1,6 @@
 from flask import Flask, request, send_from_directory
 from decode import decode_pdf, remove_file
+import os
 
 if not os.access('./files', 0):
 	os.mkdir('./files')
