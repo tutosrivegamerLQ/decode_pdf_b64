@@ -6,8 +6,6 @@ if not os.access('./files', 0):
 	os.mkdir('./files')
 	
 app = Flask(__name__)
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
-app.config['JSON_AS_ASCII'] = False
 
 UPF = "files"
 app.config['UPLOAD_FOLDER']=UPF
