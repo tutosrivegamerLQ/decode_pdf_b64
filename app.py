@@ -1,13 +1,11 @@
 from flask import Flask, request, send_from_directory
 from decode import decode_pdf, remove_file
-from flask_cors import CORS
 import os
 
 if not os.access('./files', 0):
 	os.mkdir('./files')
 	
 app = Flask(__name__)
-CORS(app)  # Esto activa CORS en todas las rutas
 UPF = "files"
 app.config['UPLOAD_FOLDER']=UPF
 
@@ -35,4 +33,4 @@ def download(fact_name):
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(debug=True, host="0.0.0.0")
