@@ -1,13 +1,11 @@
 from flask import Flask, request, send_from_directory
 from decode import decode_pdf, remove_file
 import os
-from flask_cors import CORS
 
 if not os.access('./files', 0):
 	os.mkdir('./files')
 	
 app = Flask(__name__)
-CORS(app, origins=["*"], methods=["GET", "POST", "OPTIONS"], allow_headers=["*"])
 UPF = "files"
 app.config['UPLOAD_FOLDER']=UPF
 
