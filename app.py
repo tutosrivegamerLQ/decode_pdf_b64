@@ -7,7 +7,7 @@ if not os.access('./files', 0):
 	os.mkdir('./files')
 	
 app = Flask(__name__)
-CORS(app, origins=["http://127.0.0.1:5500"], methods=["GET", "POST", "OPTIONS"], allow_headers=["Content-Type", "Authorization"])
+CORS(app, origins=["*"], methods=["GET", "POST", "OPTIONS"], allow_headers=["*"])
 UPF = "files"
 app.config['UPLOAD_FOLDER']=UPF
 
