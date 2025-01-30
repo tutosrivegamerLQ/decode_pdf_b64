@@ -6,6 +6,9 @@ if not os.access('./files', 0):
 	os.mkdir('./files')
 	
 app = Flask(__name__)
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+app.config['JSON_AS_ASCII'] = False
+
 UPF = "files"
 app.config['UPLOAD_FOLDER']=UPF
 
@@ -15,8 +18,14 @@ def home():
 
 @app.route('/decode-factus', methods=['POST'])
 def decode_factus():
+	print(request.headers)
+	print(request.content_type)
 	body = request.get_json()
-	return {"ok":True, "status":200, "file_path": decode_pdf(body['pdf_b64'], body['number_factus'])}
+	print(body)
+	if data is None:
+		return {"ok":False, "status": 400}, 400
+	else:
+		return {"ok":True, "status":200, "file_path": decode_pdf(body['pdf_b64'], body['number_factus'])}
 
 @app.route('/del-file/<path>', methods=['DELETE'])
 def del_file(path):
