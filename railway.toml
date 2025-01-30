@@ -1,2 +1,6 @@
 [build]
 dockerfile = "Dockerfile"
+[env]
+CORS_ALLOWED_ORIGINS="*"
+CORS_ALLOWED_METHODS="GET,POST,OPTIONS"
+CORS_ALLOWED_HEADERS="Content-Type,Authorization"
